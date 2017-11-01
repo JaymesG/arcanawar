@@ -1,0 +1,16 @@
+{
+  "name": "arcanawar",
+  "version": "0.0.1",
+  "description": "This is a simple RPG style card game for our CS546 Web Programming Final Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Null Point Exception",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "*"
+  }
+}
