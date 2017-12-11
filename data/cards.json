@@ -58,7 +58,21 @@
             "desc": "Can heal you with the power of water.",
             "type": "Defense",
             "value": 10
-        }
+        },
+        {
+          "title": "Gray wolf",
+          "desc": "attack",
+          "type": "Yes, this wolf is really wicked. Spine - tingling howl is all which is required",
+          "value": 7
+        },
+       {
+        "title":  "Sea cucumber",
+        "type": "defense",
+        "desc": "This isn't an ordinary Sea cucumber. It expels out its internal organs, which is sticky and very toxic",
+        "value" : 8
+     
+    }
+            
         
     ]
 }
