@@ -47,7 +47,7 @@ passport.deserializeUser(function (id, done) {
 
 function noDupeLogin(req, res, next) {
 	if (req.user) {
-		res.redirect('/private');
+		res.redirect('privategame');
 	} else {
 		return next();
 	}
@@ -65,8 +65,8 @@ function protectPrivate(req, res, next) {
     }
 }
 
-app.get("/private", protectPrivate, function (req, res) {
-    res.render('pages/private', {
+app.get("/privategame", protectPrivate, function (req, res) {
+    res.render('pages/privategame', {
         user: req.user
     });
 });
@@ -85,7 +85,7 @@ app.post('/login', function (req, res, next) {
             if (err) {
                 return next(err);
             }
-            return res.redirect('/private');
+            return res.redirect('/privategame');
         });
     })(req, res, next);
 });
