@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Private</h1>
+
+
+    <ul class="list-group">
+        <li class="list-group-item active">{{ user.firstName }} {{ user.lastName }}</li>
+        <li class="list-group-item">{{ user.email }}</li>
+    </ul>
+
+        <form id="static-form" action='/logout' method="post">
+            <div class="form-group">
+                <button type="submit">Log Out</button>
+            </div>
+        </form>
+
+    </div>
+</div>
