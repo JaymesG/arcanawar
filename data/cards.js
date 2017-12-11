@@ -6,7 +6,7 @@ let exportedMethods = {
 
     async getAllCards() {
         const cardCollection = await cards();
-        return await cardCollection.find({},{id: 1, title: 1}).toArray();
+        return await cardCollection.find().toArray();
     },
 
     async getRecipeById(id) {
