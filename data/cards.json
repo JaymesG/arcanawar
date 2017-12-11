@@ -58,10 +58,7 @@
             "desc": "Can heal you with the power of water.",
             "type": "Defense",
             "value": 10
-        },
-        
-        
-        
+        }
         
     ]
 }
