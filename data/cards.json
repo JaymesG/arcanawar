@@ -1,0 +1,28 @@
+{
+    "cards": [
+        {
+            "title": "Glare",
+            "desc": "It seems looks really can kill.",
+            "type": "Attack",
+            "value": 2
+        },
+        {
+            "title": "Final Presentation",
+            "desc": "It's like that dream, where you're standing in your underwear.",
+            "type": "Attack",
+            "value": 10
+        },
+        {
+            "title": "Black Cat",
+            "desc": "Some think black cats are unlucky, this one isn't.",
+            "type": "Defense",
+            "value": 5
+        },
+        {
+            "title": "Glowing Butterfly",
+            "desc": "Oooh, something shiny!",
+            "type": "Defense",
+            "value": 1
+        }
+    ]
+}
