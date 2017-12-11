@@ -4,7 +4,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt-nodejs');
 const users = require('./data/users');
-const cards = require('data/cards');
 const app = express();
 const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");

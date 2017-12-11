@@ -1,6 +1,5 @@
 {
-    "cards": [
-        {
+    "cards": [{
             "title": "Glare",
             "desc": "It seems looks really can kill.",
             "type": "Attack",
@@ -47,7 +46,7 @@
             "desc": "Sunrise, sunset, you don't want to get this celestial being upset.",
             "type": "Attack",
             "value": 3
-        },        {
+        }, {
             "title": "Beyonce",
             "desc": "She doesn't really need a description.",
             "type": "Attack",
@@ -60,19 +59,19 @@
             "value": 10
         },
         {
-          "title": "Gray wolf",
-          "desc": "attack",
-          "type": "Yes, this wolf is really wicked. Spine - tingling howl is all which is required",
-          "value": 7
+            "title": "Gray wolf",
+            "desc": "attack",
+            "type": "Yes, this wolf is really wicked. Spine - tingling howl is all which is required",
+            "value": 7
         },
-       {
-        "title":  "Sea cucumber",
-        "type": "defense",
-        "desc": "This isn't an ordinary Sea cucumber. It expels out its internal organs, which is sticky and very toxic",
-        "value" : 8
-     
-    }
-            
-        
+        {
+            "title": "Sea cucumber",
+            "type": "defense",
+            "desc": "This isn't an ordinary Sea cucumber. It expels out its internal organs, which is sticky and very toxic",
+            "value": 8
+
+        }
+
+
     ]
 }
