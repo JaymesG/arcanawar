@@ -23,6 +23,42 @@
             "desc": "Oooh, something shiny!",
             "type": "Defense",
             "value": 1
+        },
+        {
+            "title": "Vlad",
+            "desc": "He vants to suck your blood.",
+            "type": "Attack",
+            "value": 7
+        },
+        {
+            "title": "Lucky Goldfish",
+            "desc": "Heart of gold, this fish is worth its weight in gold.",
+            "type": "Defense",
+            "value": 6
+        },
+        {
+            "title": "Green Thumb",
+            "desc": "They said she could grow anything, so she grows vines that choke the life out of her enemy.",
+            "type": "Attack",
+            "value": 5
+        },
+        {
+            "title": "Luna Sol",
+            "desc": "Sunrise, sunset, you don't want to get this celestial being upset.",
+            "type": "Attack",
+            "value": 3
+        },        {
+            "title": "Beyonce",
+            "desc": "She doesn't really need a description.",
+            "type": "Attack",
+            "value": 10
+        },
+        {
+            "title": "Water Bender",
+            "desc": "Can heal you with the power of water.",
+            "type": "Defense",
+            "value": 10
         }
+        
     ]
 }
