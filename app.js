@@ -3,10 +3,13 @@ const bodyParser = require("body-parser");
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt-nodejs');
-const users = require('./data/users');
+//const users = require('./data/users');
 const app = express();
 const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
+
+const users = require("./userDatabaseUserCollection");
+const cards = require("./cardCollection");
 
 app.use(bodyParser.json());
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
