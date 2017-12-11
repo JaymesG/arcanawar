@@ -1,6 +1,6 @@
 {
   "mongoConfig": {
-    "serverUrl": "mongodb://main:#TOnCx0r*0Ve@ds135926.mlab.com:35926/cs546",
-    "database": "final"
+    "serverUrl": "mongodb://main:test@ds135926.mlab.com:35926/",
+    "database": "cs546"
   }
 }
