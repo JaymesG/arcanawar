@@ -2,173 +2,49 @@
     <div class="col-sm-12">
         <h1>arcanawar</h1>
 
-        <div class="container">
-            
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4 p-3 mb-2 bg-success text-white">
-                    <h1 class="text-center">User: {{ userHP }}</h1>
-                </div>
-                <div class="col-sm-4 p-3 mb-2 bg-danger text-white">
-                    <h1 class="text-center">AI: {{ aiHP }} {{ title }}</h1>
-                </div>
-                <div class="col-sm-2"></div>
+        <div class="row">
+            <div class="col-sm-6 bg-success text-center">
+                <h1 id="aiHP"></h1>
             </div>
-
-            <div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <h3 class="text-center">
-                        {{ gameMessage }}
-                    </h3>
-                </div>
-                <div class="col-sm-2"></div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4 bg-danger">
-
-                    {{#each cards}}
-                    <div class="row bg-primary">
-                        <div class="col-sm-3 text-center">
-                            <form id="static-form" action='/privategame' method="get">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-success" id="1">Play</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="col-sm-3 text-center"> {{ this.title }}</div>
-                        <div class="col-sm-6 text-center"> {{ this.type }}: {{ this.value }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            {{ this.desc }}
-                        </div>
-                    </div>
-                    {{/each}}
-
-                </div>
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2"></div>
+            <div class="col-sm-6 bg-danger text-center">
+                <h1 id="userHP"></h1>
             </div>
         </div>
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+        <div>
+            <ul class="cardList">
+                {{#each card}}
+                <li>{{this.title}}</li>
+                {{/each}}
+            </ul>
         </div>
 
-        {{!--
-        <ul class="people_list">
-            {{#each cards}}
-            <button type="button" class="btn btn-success" action="/logout">{{this.title}}</button>
-            {{/each}}
-        </ul> --}} {{!--
-        <table style="width:100%">
-            <tr>
-                <th colspan="2">AI: {{ game.AIHP }}</th>
-                <th colspan="2">User: {{ game.userHP }}</th>
-            </tr>
-            <tr>
-                <th></th>
-                <th>Card</th>
-                <th>Type</th>
-                <th>Value</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td rowspan="2">
-                    <form id="static-form" action='/privategame' method="get">
-                        <div class="form-group">
-                            <button type="submit">Play</button>
-                        </div>
-                    </form>
-                </td>
-                <td>Card 1</td>
-                <td>Defese</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td colspan="4">This is a desc...</td>
-            </tr>
-            <tr>
-                <td rowspan="2">
-                    <form id="static-form" action='/privategame' method="get">
-                        <div class="form-group">
-                            <button type="submit">Play</button>
-                        </div>
-                    </form>
-                </td>
-                <td>Card 2</td>
-                <td>Attack</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td colspan="4">This is a desc...</td>
-            </tr>
-            <tr>
-                <td rowspan="2">
-                    <form id="static-form" action='/privategame' method="get">
-                        <div class="form-group">
-                            <button type="submit">Play</button>
-                        </div>
-                    </form>
-                </td>
-                <td>Card 3</td>
-                <td>Defense</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td colspan="4">This is a desc...</td>
-            </tr>
-            <tr>
-                <td rowspan="2">
-                    <form id="static-form" action='/privategame' method="get">
-                        <div class="form-group">
-                            <button type="submit">Play</button>
-                        </div>
-                    </form>
-                </td>
-                <td>Card 4</td>
-                <td>Attack</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td colspan="4">This is a desc...</td>
-            </tr>
-            <tr>
-                <td class="centerBtn" rowspan="2">
-                    <form id="static-form" action='/privategame' method="get">
-                        <div class="form-group">
-                            <button type="submit">Play</button>
-                        </div>
-                    </form>
-                </td>
-                <td>Card 5</td>
-                <td>Attack</td>
-                <td>7</td>
-            </tr>
-            <tr>
-                <td colspan="4">This is a desc...</td>
-            </tr>
-        </table> --}} {{!--
-        <ul class="list-group">
-            <li class="list-group-item active">{{ user.firstName }} {{ user.lastName }}</li>
-            <li class="list-group-item">{{ user.profession }}</li>
-            <li class="list-group-item">{{ user.bio }}</li>
-            <li class="list-group-item">{{ user._id }}</li>
-        </ul> --}}
+
+        <form id="static-form" method="post">
+            <div class="form-group">
+                <label for="input">Enter a FUCK below</label>
+                <textarea class="form-control" rows="2" id="input"></textarea>
+            </div>
+            <div class="form-group hidden" id="error-container">
+                <div class="alert alert-danger text-goes-here">
+                </div>
+            </div>
+
+
+            {{!--
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div> --}}
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+            <h1>Results</h1>
+            <ol id="savedInputs"></ol>
+        </form>
 
         <form id="static-form" action='/logout' method="post">
             <div class="form-group">
@@ -178,3 +54,5 @@
 
     </div>
 </div>
+
+<script type="text/javascript" src="public/js/simulation"></script>

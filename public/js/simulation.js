@@ -1,4 +1,43 @@
 var list = document.getElementById('savedInputs');
+var ls = document.getElementById('aiHP');
+var ls2 = document.getElementById('userHP');
+var displayCards = document.getElementById('cardList');
+
+const cards = [
+    {
+    "title": "Glare",
+    "desc": "It seems looks really can kill.",
+    "type": "Attack",
+    "value": 2
+},
+{
+    "title": "Final Presentation",
+    "desc": "It's like that dream, where you're standing in your underwear.",
+    "type": "Attack",
+    "value": 10
+},
+{
+    "title": "Black Cat",
+    "desc": "Some think black cats are unlucky, this one isn't.",
+    "type": "Defense",
+    "value": 5
+},
+{
+    "title": "Glowing Butterfly",
+    "desc": "Oooh, something shiny!",
+    "type": "Defense",
+    "value": 1
+},
+{
+    "title": "Vlad",
+    "desc": "He vants to suck your blood.",
+    "type": "Attack",
+    "value": 7
+}]
+
+
+const aiHP = 20;
+const userHP = 20;
 
 (function () {
     const palindromeMethods = {
@@ -13,10 +52,20 @@ var list = document.getElementById('savedInputs');
             text = text.replace(/\s{1,}/g,'');
             text = text.replace(/\r?\n|\r|\t/g, '');
             return text;
+        },
+        seed: function () {            
+            ls.appendChild(document.createTextNode(aiHP));
+            ls2.appendChild(document.createTextNode(userHP)); 
+            displayCards.appendChild(document.createTextNode(JSON.stringify(cards)));
+            return 1;
+        },
+        getUHP: function () {
+            return userHP;
         }
     };
 
     const staticForm = document.getElementById("static-form");
+    const isSeeded = palindromeMethods.seed();
 
     if (staticForm) {
         const userInputElement = document.getElementById("input");
@@ -26,18 +75,12 @@ var list = document.getElementById('savedInputs');
             "text-goes-here"
         )[0];
 
-        // const resultContainer = document.getElementById("result-container");
-        // const resultTextElement = resultContainer.getElementsByClassName(
-        //     "text-goes-here"
-        // )[0];
-
         staticForm.addEventListener("submit", event => {
             event.preventDefault();
 
             try {
                 // hide containers by default
                 errorContainer.classList.add("hidden");
-                // resultContainer.classList.add("hidden");
 
                 const userInputValue = userInputElement.value;
 
@@ -52,9 +95,10 @@ var list = document.getElementById('savedInputs');
                 }
                 entry.appendChild(document.createTextNode(simpleInput));
                 list.appendChild(entry);
+                ls.innerHTML = aiHP;
+                ls2.innerHTML = userHP;
+                
 
-                // resultTextElement.textContent = "The result is " + result;
-                // resultContainer.classList.remove("hidden");
             } catch (e) {
                 const message = typeof e === "string" ? e : e.message;
                 errorTextElement.textContent = e;
