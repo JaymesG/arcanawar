@@ -1,9 +1,13 @@
+// Hashing algorithm makes login slow.
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt-nodejs');
 const users = require('./data/users');
+const cards = require('./data/cards');
+const _ = require('underscore');
 const app = express();
 const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
@@ -53,7 +57,7 @@ function noDupeLogin(req, res, next) {
 	}
 }
 
-app.get("/", noDupeLogin, function (req, res) {
+app.get("/", noDupeLogin, async function (req, res) {
     res.render("pages/login");
 });
 
@@ -65,8 +69,26 @@ function protectPrivate(req, res, next) {
     }
 }
 
-app.get("/privategame", protectPrivate, function (req, res) {
+
+//const cardString = JSON.stringify(cardList);
+
+const userPoints = 20;
+const aiPoints = 30;
+//const userCards = _.sample(cardList, 5);
+// const aiCards = _.sample(allcards, 5);
+
+app.get("/privategame", protectPrivate, async function (req, res) {
+    const cardList = await cards.getAllCards();
+    const userCards = _.sample(cardList, 5);
     res.render('pages/privategame', {
+        aiHP: userPoints,
+        userHP: aiPoints,
+        cards: userCards
+    });
+});
+
+app.get("/profile", protectPrivate, function (req, res) {
+    res.render('pages/profile', {
         user: req.user
     });
 });
@@ -93,6 +115,14 @@ app.post('/login', function (req, res, next) {
 app.post("/logout", function (req, res) {
     req.logout();
     res.redirect('/');
+});
+
+app.get('/win', function (req, res, next){
+    req.render('pages/win');
+});
+
+app.get('/lose', function (req, res, next){
+    req.render('pages/lose');
 });
 
 app.listen(27017, () => {

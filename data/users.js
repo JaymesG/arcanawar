@@ -22,7 +22,7 @@ let exportedMethods = {
             if(!username) throw "No username provided.";
             const userCol = await userDb();
             const users = await userCol.find().toArray();
-            console.log("our users are" + users);
+            //console.log("our users are" + users);
             for (i = 0; i < users.length; i++) {
                 let user = users[i];
                 if(user.username === username) {
