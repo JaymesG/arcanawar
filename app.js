@@ -74,7 +74,7 @@ function protectPrivate(req, res, next) {
 
 const userPoints = 20;
 const aiPoints = 30;
-const userCards = _.sample(cardList, 5);
+//const userCards = _.sample(cardList, 5);
 // const aiCards = _.sample(allcards, 5);
 
 app.get("/privategame", protectPrivate, async function (req, res) {

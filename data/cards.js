@@ -7,11 +7,6 @@ let exportedMethods = {
     async getAllCards() {
         const cardCollection = await cards();
         const cardArray = await cardCollection.find({}).toArray();
-<<<<<<< HEAD
-=======
-        console.log("our array is " + cardArray[1].title);
-        console.log("our array is " + cardArray[2].title);
->>>>>>> 925aeb65ad0ebfa47bd88a3530954b02d6cf40ff
         return cardArray;
     }
 
