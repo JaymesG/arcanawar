@@ -117,6 +117,14 @@ app.post("/logout", function (req, res) {
     res.redirect('/');
 });
 
+app.get('/win', function (req, res, next){
+    req.render('pages/win');
+});
+
+app.get('/lose', function (req, res, next){
+    req.render('pages/lose');
+});
+
 app.listen(27017, () => {
     console.log("We've now got a server!");
     console.log("Your routes will be running on http://localhost:27017/");
