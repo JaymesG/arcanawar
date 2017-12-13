@@ -2,6 +2,9 @@
     <div class="col-sm-12">
         <h1>arcanawar</h1>
 
+
+
+
         <div class="row">
             <div class="col-sm-6 bg-success text-center">
                 <h1 id="aiHP"></h1>
@@ -11,7 +14,30 @@
             </div>
         </div>
 
-        <form id="static-form" action="privategame" method="post">
+
+        <br>
+        <ul>
+            {{#each cards}}
+            <div class="row bg-primary">
+                <div class="col-sm-6">
+                    {{this.title}}
+                </div>
+                <div class="col-sm-6 bg-primary">
+                    {{this.type}} : {{ this.value }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    {{this.desc}}
+                </div>
+            </div>
+            <hr>
+            {{/each}}
+        </ul>
+
+        <h1 id="outputusercards"></h1>
+
+        <form id="static-form">
             <div class="form-group">
                 <label for="input">Enter below</label>
                 <textarea class="form-control" rows="2" id="input"></textarea>
@@ -21,21 +47,32 @@
                 </div>
             </div>
 
+            <div>
+                <select>
+                    <option value="1">Card 1</option>
+                    <option value="2">Card 2</option>
+                    <option value="3">Card 3</option>
+                    <option value="4">Card 4</option>
+                    <option value="5">Card 5</option>
+                </select>
+            </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Play</button>
             </div>
+
             <h1>Results</h1>
             <ol id="savedInputs"></ol>
         </form>
 
+        {{!--
         <form id="static-form" action='privategame/logout' method="post">
             <div class="form-group">
                 <button type="submit">Log Out</button>
             </div>
-        </form>
+        </form> --}}
 
     </div>
 </div>
 
-{{!-- <script type="text/javascript" src="public/js/simulation"></script> --}}
+<script type="text/javascript" src="js/simulation.js"></script>

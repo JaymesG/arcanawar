@@ -11,8 +11,6 @@ const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
 const profile = require("./routes/profile");
 const privateGame = require("./routes/privategame");
-const static = express.static(__dirname + '/public');
-
 
 app.use(bodyParser.json());
 app.use(express.static('./public'));
@@ -25,7 +23,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use("/privategame", privateGame);
 app.use("/profile", profile);
-app.use('/public', static);
 
 
 
@@ -78,16 +75,6 @@ function protectPrivate(req, res, next) {
         res.redirect('/');
     }
 }
-
-
-//const cardString = JSON.stringify(cardList);
-
-//
-// app.get("/profile", protectPrivate, function (req, res) {
-//     res.render('pages/profile', {
-//         user: req.user
-//     });
-// });
 
 app.post('/login', function (req, res, next) {
     passport.authenticate('local', function (err, user, info) {

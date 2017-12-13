@@ -1,43 +1,9 @@
 var list = document.getElementById('savedInputs');
 var ls = document.getElementById('aiHP');
 var ls2 = document.getElementById('userHP');
-var displayCards = document.getElementById('cardList');
 
-const cards = [
-    {
-    "title": "Glare",
-    "desc": "It seems looks really can kill.",
-    "type": "Attack",
-    "value": 2
-},
-{
-    "title": "Final Presentation",
-    "desc": "It's like that dream, where you're standing in your underwear.",
-    "type": "Attack",
-    "value": 10
-},
-{
-    "title": "Black Cat",
-    "desc": "Some think black cats are unlucky, this one isn't.",
-    "type": "Defense",
-    "value": 5
-},
-{
-    "title": "Glowing Butterfly",
-    "desc": "Oooh, something shiny!",
-    "type": "Defense",
-    "value": 1
-},
-{
-    "title": "Vlad",
-    "desc": "He vants to suck your blood.",
-    "type": "Attack",
-    "value": 7
-}]
-
-
-const aiHP = 20;
-const userHP = 20;
+var aiHP = 20;
+var userHP = 20;
 
 (function () {
     const palindromeMethods = {
@@ -55,12 +21,8 @@ const userHP = 20;
         },
         seed: function () {            
             ls.appendChild(document.createTextNode(aiHP));
-            ls2.appendChild(document.createTextNode(userHP)); 
-            displayCards.appendChild(document.createTextNode(JSON.stringify(cards)));
+            ls2.appendChild(document.createTextNode(userHP));
             return 1;
-        },
-        getUHP: function () {
-            return userHP;
         }
     };
 
@@ -86,6 +48,8 @@ const userHP = 20;
 
                 const simpleInput = palindromeMethods.simplify(userInputValue);
                 const result = palindromeMethods.check(simpleInput);
+                userHP--;
+                aiHP -= 5;
 
                 var entry = document.createElement('li');
                 if(result) {
@@ -97,7 +61,9 @@ const userHP = 20;
                 list.appendChild(entry);
                 ls.innerHTML = aiHP;
                 ls2.innerHTML = userHP;
-                
+            
+                //var outputcards = document.getElementById('outputusercards');
+                //outputcards.innerHTML(usercards);
 
             } catch (e) {
                 const message = typeof e === "string" ? e : e.message;
