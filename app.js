@@ -132,7 +132,12 @@ function noDupeLogin(req, res, next) {
 	}
 }
 
-app.get("/", noDupeLogin, function (req, res) {
+app.get("/", noDupeLogin, async function (req, res) {
+
+    const cardList = await cards.getAllCards();
+        console.log("Here1: " + cardList[1]);
+        console.log("Here2: " + cardList);
+        console.log("Here3: " + JSON.stringify(cardList));
     res.render("pages/login");
 });
 
@@ -144,10 +149,7 @@ function protectPrivate(req, res, next) {
     }
 }
 
-const cardList = cards.getAllCards();
-console.log("Here1: " + cardList[1]);
-console.log("Here2: " + cardList);
-console.log("Here3: " + JSON.stringify(cardList));
+
 //const cardString = JSON.stringify(cardList);
 
 const userPoints = 20;
