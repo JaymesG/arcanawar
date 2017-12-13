@@ -11,6 +11,7 @@ const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
 const profile = require("./routes/profile");
 const privateGame = require("./routes/privategame");
+const static = express.static(__dirname + '/public');
 
 
 app.use(bodyParser.json());
@@ -23,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use("/privategame", privateGame);
 app.use("/profile", profile);
+app.use('/public', static);
 
 
 

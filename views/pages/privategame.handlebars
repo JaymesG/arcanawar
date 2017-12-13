@@ -11,32 +11,15 @@
             </div>
         </div>
 
-        <div>
-            <ul class="cardList">
-                {{#each card}}
-                <li>{{this.title}}</li>
-                {{/each}}
-            </ul>
-        </div>
-
-
-        <form id="static-form" method="post">
+        <form id="static-form" action="privategame" method="post">
             <div class="form-group">
-                <label for="input">Enter a FUCK below</label>
+                <label for="input">Enter below</label>
                 <textarea class="form-control" rows="2" id="input"></textarea>
             </div>
             <div class="form-group hidden" id="error-container">
                 <div class="alert alert-danger text-goes-here">
                 </div>
             </div>
-
-
-            {{!--
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div> --}}
 
 
             <div class="form-group">
@@ -46,7 +29,7 @@
             <ol id="savedInputs"></ol>
         </form>
 
-        <form id="static-form" action='/logout' method="post">
+        <form id="static-form" action='privategame/logout' method="post">
             <div class="form-group">
                 <button type="submit">Log Out</button>
             </div>
@@ -55,4 +38,4 @@
     </div>
 </div>
 
-<script type="text/javascript" src="public/js/simulation"></script>
+{{!-- <script type="text/javascript" src="public/js/simulation"></script> --}}
