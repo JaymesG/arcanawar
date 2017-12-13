@@ -69,9 +69,6 @@ function protectPrivate(req, res, next) {
     }
 }
 
-
-//const cardString = JSON.stringify(cardList);
-
 const userPoints = 20;
 const aiPoints = 30;
 //const userCards = _.sample(cardList, 5);
