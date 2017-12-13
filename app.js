@@ -57,7 +57,7 @@ function noDupeLogin(req, res, next) {
 	}
 }
 
-app.get("/", noDupeLogin, function (req, res) {
+app.get("/", noDupeLogin, async function (req, res) {
     res.render("pages/login");
 });
 
@@ -69,23 +69,21 @@ function protectPrivate(req, res, next) {
     }
 }
 
-const cardList = cards.getAllCards();
-const cardString = JSON.stringify(cardList);
+
+//const cardString = JSON.stringify(cardList);
 
 const userPoints = 20;
 const aiPoints = 30;
 const userCards = _.sample(cardList, 5);
 // const aiCards = _.sample(allcards, 5);
 
-console.log(cardList);
-console.log(userCards);
-
-app.get("/privategame", protectPrivate, function (req, res) { 
+app.get("/privategame", protectPrivate, async function (req, res) {
+    const cardList = await cards.getAllCards();
+    const userCards = _.sample(cardList, 5);
     res.render('pages/privategame', {
         aiHP: userPoints,
         userHP: aiPoints,
-        cards: cardString,
-        gameMessage: "Your opponent is so strong!"
+        cards: userCards
     });
 });
 
