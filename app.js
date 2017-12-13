@@ -14,6 +14,7 @@ const privateGame = require("./routes/privategame");
 
 
 app.use(bodyParser.json());
+app.use(express.static('./public'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(require('cookie-parser')());
