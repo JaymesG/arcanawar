@@ -1,12 +1,15 @@
 const mongoCollections = require("../config/mongoCollections");
-const cards = mongoCollections.cards;
+const cards = mongoCollections.cardCollection;
 const uuid = require('uuid');
 
 let exportedMethods = {
 
     async getAllCards() {
         const cardCollection = await cards();
-        return await cardCollection.find().toArray();
+        const cardArray = await cardCollection.find({}).toArray();
+        console.log("our array is " + cardArray[1].title)
+        console.log("our array is " + cardArray[2].title)
+        return cardArray;
     }
 
     // async getCardsById(id) {
