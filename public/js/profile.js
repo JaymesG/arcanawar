@@ -1,47 +1,61 @@
 
+    document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", () => {
+        let userForm = document.getElementById("name-form");
 
-    let palindromeForm = document.getElementById("palindrome-form");
+        let userName = document.getElementById("input-text-name");
 
-    let checkedList = document.getElementById("items-checked-list");
-
-    let inputtedText = document.getElementById("input-text");
+        let favoriteCard = document.getElementById("input-text-card");
 
 
-    function checkedPalindromeListItem(isPalindrome, item) {
+        function checkedPalindromeListItem(isPalindrome, item) {
 
-        let listElement = document.createElement("li");
+            let listElement = document.createElement("li");
 
-        listElement.textContent = item;
+            listElement.textContent = item;
 
-        if (isPalindrome){
-            listElement.className += " is-palindrome";
+            if (isPalindrome) {
+                listElement.className += " is-palindrome";
+            }
+            else {
+                listElement.className += " not-palindrome";
+            }
+
+            return listElement;
         }
-        else {
-            listElement.className += " not-palindrome";
-        }
 
-        return listElement;
-    }
+        userForm.addEventListener("submit", (e) => {
 
-    palindromeForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("our username shold be " +  userName.value);
+            $.ajax({
+                type: 'POST',
+                data: JSON.stringify({
+                userName: userName.value,
+                    favoriteCard: favoriteCard.value
+                })
+        ,
+                contentType: 'application/json',
+                url: '/profile',
+                success: function (data) {
+                    console.log('success');
+                    console.log(JSON.stringify(data));
+                }
+            });
 
-        e.preventDefault();
+            // let inputText;
+            // if(inputtedText){
+            //     inputText = inputtedText.value;
+            // } else {
+            //     inputText = "";
+            // }
+            // let cleanText = inputText.toLowerCase().replace(/[^A-Za-z0-9]/g, "");
+            //
+            // let isPalindrome = cleanText === cleanText.split("").reverse().join("");
+            //
+            // let listItem = checkedPalindromeListItem(isPalindrome, inputText);
+            //
+            // checkedList.appendChild(listItem);
+        });
 
-        let inputText;
-        if(inputtedText){
-            inputText = inputtedText.value;
-        } else {
-            inputText = "";
-        }
-        let cleanText = inputText.toLowerCase().replace(/[^A-Za-z0-9]/g, "");
-
-        let isPalindrome = cleanText === cleanText.split("").reverse().join("");
-
-        let listItem = checkedPalindromeListItem(isPalindrome, inputText);
-
-        checkedList.appendChild(listItem);
     });
-
-});
