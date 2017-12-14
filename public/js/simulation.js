@@ -70,7 +70,7 @@ var userHP = 20;
         staticForm.addEventListener("submit", event => {
             event.preventDefault();
 
-            try {
+            // try {
                 // hide containers by default
                 // errorContainer.classList.add("hidden");
                 let selectedIndex = -1;
@@ -81,29 +81,34 @@ var userHP = 20;
                         selectedIndex = i;
                     }
                 }
+            document.getElementById("myRadio " + selectedIndex).checked = false;
+
+            document.getElementById("myRadio " + selectedIndex).disabled = true;
 
                 const selectedCard = userCards[selectedIndex];
                 const selectedValue = selectedCard.value;
                 const selectedType = selectedCard.type;
-                const selectedDesc = selectedCard.desc;
+                const selectedDesc = selectedCard.description;
                 const selectedTitle = selectedCard.title;
+                console.log(selectedCard);
 
-                if(type === "Attack") {
+
+
+                if(selectedType === "Attack") {
                     aiHP -= selectedValue;
                     //ai turn
                 }else {
                     userHP += selectedValue;
                 }
 
-                console.log(selectedIndex);
-                document.getElementById("demo").innerHTML = "You chose the card" + selectedTitle;
+                // document.getElementById("demo").innerHTML = "You chose the card" + selectedTitle;
 
                 //const userInputValue = userInputElement.value;
                 //console.log(userInputValue);
 
                 // const simpleInput = cardMethods.simplify(userInputValue);
                 // const result = cardMethods.check(simpleInput);
-                userHP += theValue.value;
+                // userHP += theValue.value;
                 aiHP -= 5;
 
                 // var entry = document.createElement('li');
@@ -117,11 +122,12 @@ var userHP = 20;
                 ls.innerHTML = aiHP;
                 ls2.innerHTML = userHP;
 
-            } catch (e) {
-                const message = typeof e === "string" ? e : e.message;
-                // errorTextElement.textContent = e;
-                // errorContainer.classList.remove("hidden");
-            }
+            // } catch (e) {
+            //     const message = typeof e === "string" ? e : e.message;
+            //     console.log("error" + message);
+            //     // errorTextElement.textContent = e;
+            //     // errorContainer.classList.remove("hidden");
+            // }
         });
     }
 })();
