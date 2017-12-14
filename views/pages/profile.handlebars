@@ -21,9 +21,15 @@
                 <ul id="items-checked-list">
                 </ul>
             </section>
-        <form id="logout-form" action='/logout' method="post">
+
+        <form id="logout-form" action='/privategame/logout' method="post">
             <div class="form-group">
                 <button type="submit">Log Out</button>
+            </div>
+        </form>
+        <form id="game-form" action='/privategame' method="get">
+            <div class="form-group">
+                <button type="submit">Start a New Game</button>
             </div>
         </form>
 

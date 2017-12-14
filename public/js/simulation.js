@@ -2,7 +2,6 @@ var list = document.getElementById('savedInputs');
 var ls = document.getElementById('aiHP');
 var ls2 = document.getElementById('userHP');
 var uCards = document.getElementById('cardsContainer');
-var gameOutput = document.getElementById("demo");
 var userCards = [];
 var aiCards = [];
 
@@ -51,8 +50,6 @@ var userHP = 20;
                 cardsContainer.appendChild(document.createElement("br"));
                 cardsContainer.appendChild(document.createTextNode(i+1 + ". " + userCards[i].title + " - " + userCards[i].type + " : " + userCards[i].value));
                 cardsContainer.appendChild(document.createElement("br"));
-                cardsContainer.appendChild(document.createTextNode(userCards[i].desc));
-                cardsContainer.appendChild(document.createElement("br"));
             }
         }
     };
@@ -73,7 +70,7 @@ var userHP = 20;
         staticForm.addEventListener("submit", event => {
             event.preventDefault();
 
-            try {
+            // try {
                 // hide containers by default
                 // errorContainer.classList.add("hidden");
                 let selectedIndex = -1;
@@ -84,13 +81,18 @@ var userHP = 20;
                         selectedIndex = i;
                     }
                 }
-                document.getElementById("myRadio " + selectedIndex).checked = false;
-                document.getElementById("myRadio " + selectedIndex).disabled = true;                
+            document.getElementById("myRadio " + selectedIndex).checked = false;
+
+            document.getElementById("myRadio " + selectedIndex).disabled = true;
+
                 const selectedCard = userCards[selectedIndex];
                 const selectedValue = selectedCard.value;
                 const selectedType = selectedCard.type;
-                const selectedDesc = selectedCard.desc;
+                const selectedDesc = selectedCard.description;
                 const selectedTitle = selectedCard.title;
+                console.log(selectedCard);
+
+
 
                 if(selectedType === "Attack") {
                     aiHP -= selectedValue;
@@ -99,8 +101,12 @@ var userHP = 20;
                     userHP += selectedValue;
                 }
 
+<<<<<<< HEAD
                 console.log(selectedIndex);
                 gameOutput.innerHTML = "You chose the card: " + selectedTitle;
+=======
+                // document.getElementById("demo").innerHTML = "You chose the card" + selectedTitle;
+>>>>>>> 7b9dd659dcee5848e07456393738f283d8a6ae44
 
                 //const userInputValue = userInputElement.value;
                 //console.log(userInputValue);
@@ -108,7 +114,7 @@ var userHP = 20;
                 // const simpleInput = cardMethods.simplify(userInputValue);
                 // const result = cardMethods.check(simpleInput);
                 // userHP += theValue.value;
-                // aiHP -= 5;
+                aiHP -= 5;
 
                 // var entry = document.createElement('li');
                 // if(result) {
@@ -121,11 +127,12 @@ var userHP = 20;
                 ls.innerHTML = aiHP;
                 ls2.innerHTML = userHP;
 
-            } catch (e) {
-                const message = typeof e === "string" ? e : e.message;
-                // errorTextElement.textContent = e;
-                // errorContainer.classList.remove("hidden");
-            }
+            // } catch (e) {
+            //     const message = typeof e === "string" ? e : e.message;
+            //     console.log("error" + message);
+            //     // errorTextElement.textContent = e;
+            //     // errorContainer.classList.remove("hidden");
+            // }
         });
     }
 })();
