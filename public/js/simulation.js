@@ -100,9 +100,7 @@ var userHP = 20;
                 }
 
                 console.log(selectedIndex);
-                gameOutput.innerHTML = "You chose the card" + selectedTitle;
-                // demo.appendChild(document.createElement("You chose the card" + selectedTitle));
-                // demo.appendChild(document.createElement("br"));
+                gameOutput.innerHTML = "You chose the card: " + selectedTitle;
 
                 //const userInputValue = userInputElement.value;
                 //console.log(userInputValue);
