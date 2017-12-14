@@ -24,6 +24,13 @@ router.get("/", protectPrivate, async function (req, res) {
     });
 });
 
+router.get("/cards", protectPrivate, async function (req, res) {
+    //console.log("here");
+    const cardList = await cards.getAllCards();
+    const userCards = _.sample(cardList, 5);
+    res.json({userCards: userCards})
+});
+
 
 router.post("/logout", function (req, res) {
     req.logout();

@@ -22,6 +22,17 @@ var userHP = 20;
         seed: function () {            
             ls.appendChild(document.createTextNode(aiHP));
             ls2.appendChild(document.createTextNode(userHP));
+            $.ajax({
+                type: 'GET',
+                contentType: 'application/json',
+                url: '/privategame/cards',
+                success: function (data) {
+                    console.log('success');
+                    console.log(data.test);
+                    console.log(JSON.stringify(data));
+                }
+            });
+
             return 1;
         }
     };
