@@ -2,6 +2,7 @@ var list = document.getElementById('savedInputs');
 var ls = document.getElementById('aiHP');
 var ls2 = document.getElementById('userHP');
 var uCards = document.getElementById('cardsContainer');
+var gameOutput = document.getElementById("demo");
 var userCards = [];
 var aiCards = [];
 
@@ -50,6 +51,8 @@ var userHP = 20;
                 cardsContainer.appendChild(document.createElement("br"));
                 cardsContainer.appendChild(document.createTextNode(i+1 + ". " + userCards[i].title + " - " + userCards[i].type + " : " + userCards[i].value));
                 cardsContainer.appendChild(document.createElement("br"));
+                cardsContainer.appendChild(document.createTextNode(userCards[i].desc));
+                cardsContainer.appendChild(document.createElement("br"));
             }
         }
     };
@@ -81,14 +84,15 @@ var userHP = 20;
                         selectedIndex = i;
                     }
                 }
-
+                document.getElementById("myRadio " + selectedIndex).checked = false;
+                document.getElementById("myRadio " + selectedIndex).disabled = true;                
                 const selectedCard = userCards[selectedIndex];
                 const selectedValue = selectedCard.value;
                 const selectedType = selectedCard.type;
                 const selectedDesc = selectedCard.desc;
                 const selectedTitle = selectedCard.title;
 
-                if(type === "Attack") {
+                if(selectedType === "Attack") {
                     aiHP -= selectedValue;
                     //ai turn
                 }else {
@@ -96,15 +100,17 @@ var userHP = 20;
                 }
 
                 console.log(selectedIndex);
-                document.getElementById("demo").innerHTML = "You chose the card" + selectedTitle;
+                gameOutput.innerHTML = "You chose the card" + selectedTitle;
+                // demo.appendChild(document.createElement("You chose the card" + selectedTitle));
+                // demo.appendChild(document.createElement("br"));
 
                 //const userInputValue = userInputElement.value;
                 //console.log(userInputValue);
 
                 // const simpleInput = cardMethods.simplify(userInputValue);
                 // const result = cardMethods.check(simpleInput);
-                userHP += theValue.value;
-                aiHP -= 5;
+                // userHP += theValue.value;
+                // aiHP -= 5;
 
                 // var entry = document.createElement('li');
                 // if(result) {
