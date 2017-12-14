@@ -43,9 +43,9 @@ router.post("/logout", function (req, res) {
 });
 
 router.get('/win', function (req, res, next){
-    req.render('pages/win');
+    res.render('pages/win');
 });
 
 router.get('/lose', function (req, res, next){
-    req.render('pages/lose');
+    res.render('pages/lose');
 });
