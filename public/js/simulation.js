@@ -74,15 +74,29 @@ var userHP = 20;
                 // hide containers by default
                 // errorContainer.classList.add("hidden");
                 let selectedIndex = -1;
-                console.log("here");
+                //console.log("here");
                 for(let i = 0; i < 5; i++)
                 {
                     if (document.getElementById("myRadio " + i).checked){
                         selectedIndex = i;
                     }
                 }
+
+                const selectedCard = userCards[selectedIndex];
+                const selectedValue = selectedCard.value;
+                const selectedType = selectedCard.type;
+                const selectedDesc = selectedCard.desc;
+                const selectedTitle = selectedCard.title;
+
+                if(type === "Attack") {
+                    aiHP -= selectedValue;
+                    //ai turn
+                }else {
+                    userHP += selectedValue;
+                }
+
                 console.log(selectedIndex);
-                document.getElementById("demo").innerHTML = x;
+                document.getElementById("demo").innerHTML = "You chose the card" + selectedTitle;
 
                 //const userInputValue = userInputElement.value;
                 //console.log(userInputValue);
