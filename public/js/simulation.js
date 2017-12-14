@@ -97,17 +97,6 @@ let counter = 0;
                     return;
                 }
 
-            document.getElementById("myRadio " + selectedIndex).checked = false;
-
-            document.getElementById("myRadio " + selectedIndex).disabled = true;
-
-                const selectedCard = userCards[selectedIndex];
-                const selectedValue = selectedCard.value;
-                const selectedType = selectedCard.type;
-                const selectedDesc = selectedCard.description;
-                const selectedTitle = selectedCard.title;
-                console.log(selectedCard);
-
                 var selectedAiCard;
                 var selectedAiValue;
                 var selectedAiType;
@@ -122,36 +111,40 @@ let counter = 0;
                 
                 let hasAttack = false;
                 for(let i = 0; i < aiCards.length; i++){
-                    if(aiCards[i] === "Attack"){
+                    if(aiCards[i].type === "Attack"){
                         hasAttack = true;
                     }
                 }
                 let hasDefense = false;
                 for(let i = 0; i < aiCards.length; i++){
-                    if(aiCards[i] === "Defense"){
+                    if(aiCards[i].type === "Defense"){
                         hasDefense = true;
                     }
                 }
                 // AI health good
                 if ((aiHP >= 10 && hasAttack) || !hasDefense) {
-
-                    for(i = 0; i < aiCards.length; i++) {
-                        if(aiCards[i] === "Attack") {
+                console.log("are we here?");
+                    for(let i = 0; i < aiCards.length; i++) {
+                        console.log("here")
+                        if(aiCards[i].type === "Attack") {
                             userHP -= aiCards[i].value;
                             selectedAiCard = aiCards[i];
                             selectedAiValue = selectedAiCard.value;
                             selectedAiType = selectedAiCard.type;
-                            selectedAiDesc = selectedAiCard.desc;
+                            selectedAiDesc = selectedAiCard.description;
                             selectedAiTitle = selectedAiCard.title;
                             aiCards.splice(i, 1);
+                            break;
                         }
+
                     }
 
                 // AI health bad
                 }else {
+                    console.log("are we there?");
 
-                    for(i = 0; i < aiCards.length; i++) {
-                        if(aiCards[i] === "Defense") {
+                    for(let i = 0; i < aiCards.length; i++) {
+                        if(aiCards[i].type === "Defense") {
                             aiHP += aiCards[i].value;
                             selectedAiCard = aiCards[i];
                             selectedAiValue = selectedAiCard.value;
@@ -159,6 +152,7 @@ let counter = 0;
                             selectedAiDesc = selectedAiCard.desc;
                             selectedAiTitle = selectedAiCard.title;
                             aiCards.splice(i, 1);
+                            break;
                         }
                     }
                     
