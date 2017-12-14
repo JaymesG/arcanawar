@@ -64,24 +64,42 @@
 
         <h1 id="outputusercards"></h1>
 
+
+
+        <form action="#n" name="theForm">
+
+            <label for="gender">Gender: </label>
+            <input type="radio" name="genderS" value="1" checked> Male
+            <input type="radio" name="genderS" value="0"> Female
+            <br>
+            <br>
+            <a href="javascript: submitForm()">Search</A>
+        </form>
+
+
+
         <form id="static-form">
+            {{!--
             <div class="form-group">
                 <label for="input">Enter below</label>
                 <textarea class="form-control" rows="2" id="input"></textarea>
-            </div>
+            </div> --}}
             <div class="form-group hidden" id="error-container">
                 <div class="alert alert-danger text-goes-here">
                 </div>
             </div>
 
-            <div>
-                <select>
-                    <option value="1">Card 1</option>
-                    <option value="2">Card 2</option>
-                    <option value="3">Card 3</option>
-                    <option value="4">Card 4</option>
-                    <option value="5">Card 5</option>
-                </select>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optradio" value="1">Card One</label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optradio" value="2">Card Two</label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optradio" value="3">Card Tree</label>
             </div>
 
             <div class="form-group">
