@@ -1,12 +1,15 @@
 var list = document.getElementById('savedInputs');
 var ls = document.getElementById('aiHP');
 var ls2 = document.getElementById('userHP');
+var uCards = document.getElementById('cardsContainer');
+var usersCards;
+var aiCards;
 
 var aiHP = 20;
 var userHP = 20;
 
 (function () {
-    const palindromeMethods = {
+    const cardMethods = {
         check(str) {
             if (typeof str !== "string") throw "Must provide a string";
             return str == str.split('').reverse().join('');
@@ -27,18 +30,27 @@ var userHP = 20;
                 contentType: 'application/json',
                 url: '/privategame/cards',
                 success: function (data) {
-                    console.log('success');
-                    console.log(data.test);
-                    console.log(JSON.stringify(data));
+                    userCards = data.userCards;
+                    aiCards = data.aiCards;
+
+                    // console.log('success');
+                    // console.log(data.test);
+                    // console.log(JSON.stringify(data));
                 }
             });
 
             return 1;
+        },
+        displayCards : function () {
+            for(i = 0; i < userCards.length; i++) {
+                cardsContainer.innerHTML = userCards[i].title, userCards[i].value;
+            }
         }
     };
 
     const staticForm = document.getElementById("static-form");
-    const isSeeded = palindromeMethods.seed();
+    const isSeeded = cardMethods.seed();
+    cardMethods.displayCards();
 
     if (staticForm) {
         const userInputElement = document.getElementById("input");
@@ -57,8 +69,8 @@ var userHP = 20;
 
                 const userInputValue = userInputElement.value;
 
-                const simpleInput = palindromeMethods.simplify(userInputValue);
-                const result = palindromeMethods.check(simpleInput);
+                const simpleInput = cardMethods.simplify(userInputValue);
+                const result = cardMethods.check(simpleInput);
                 userHP--;
                 aiHP -= 5;
 

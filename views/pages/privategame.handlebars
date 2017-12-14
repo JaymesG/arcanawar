@@ -2,6 +2,28 @@
     <div class="col-sm-12">
         <h1>arcanawar</h1>
 
+        <div class="row">
+
+            <div class="col-sm-6">
+                <form id="static-form" action='profile/' method="post">
+                    <div class="form-group">
+                        <button type="submit">Profile</button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-sm-6">
+                <form id="static-form" action='privategame/logout' method="post">
+                    <div class="form-group">
+                        <button type="submit">Log Out</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
 
 
 
@@ -12,6 +34,12 @@
             <div class="col-sm-6 bg-danger text-center">
                 <h1 id="userHP"></h1>
             </div>
+        </div>
+
+        
+
+        <div id="cardsContainer">
+
         </div>
 
 
@@ -31,8 +59,7 @@
                     {{this.desc}}
                 </div>
             </div>
-            <hr>
-            {{/each}}
+            <hr> {{/each}}
         </ul>
 
         <h1 id="outputusercards"></h1>
@@ -65,20 +92,12 @@
             <ol id="savedInputs"></ol>
         </form>
 
-        <form id="static-form" action='privategame/logout' method="post">
-            <div class="form-group">
-                <button type="submit">Log Out</button>
-            </div>
-        </form>
 
-        <form id="static-form" action='profile/' method="post">
-            <div class="form-group">
-                <button type="submit">Profile</button>
-            </div>
-        </form>
+
+
 
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/simulation.js"></script>

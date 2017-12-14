@@ -20,7 +20,7 @@ router.get("/", protectPrivate, async function (req, res) {
     const cardList = await cards.getAllCards();
     const userCards = _.sample(cardList, 5);
     res.render('pages/privategame', {
-        cards: userCards
+        // cards: userCards
     });
 });
 
