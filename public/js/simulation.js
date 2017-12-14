@@ -8,7 +8,7 @@ var aiCards = [];
 var aiHP = 20;
 var userHP = 20;
 
-(function () {
+(async function () {
     const cardMethods = {
         check(str) {
             if (typeof str !== "string") throw "Must provide a string";
@@ -22,25 +22,29 @@ var userHP = 20;
             text = text.replace(/\r?\n|\r|\t/g, '');
             return text;
         },
-        seed: function () {            
+        seed: function () {
             ls.appendChild(document.createTextNode(aiHP));
             ls2.appendChild(document.createTextNode(userHP));
-            $.ajax({
+            return $.ajax({
                 type: 'GET',
                 contentType: 'application/json',
-                url: '/privategame/cards',
-                success: function (data) {
-                    userCards = data.userCards;
-                    aiCards = data.aiCards;
-
-                    // console.log('success');
-                    // console.log(data.test);
-                    // console.log(JSON.stringify(data));
-                }
+                url: '/privategame/cards'
+                // success: function (data) {
+                //     userCards = data.userCards;
+                //     aiCards = data.aiCards;
+                //
+                //     // console.log('success');
+                //     // console.log(data.test);
+                //     // console.log(JSON.stringify(data));
+                // }
+            }).then(function (data){
+                console.log(data);
+                userCards = data.userCards;
+                aiCards = data.aiCards;
+                console.log('eventually called');
             });
 
-            return 1;
-        },
+            },
         displayCards : function () {
             for(i = 0; i < userCards.length; i++) {
                 cardsContainer.innerHTML = userCards[i].title, userCards[i].value;
@@ -49,7 +53,8 @@ var userHP = 20;
     };
 
     const staticForm = document.getElementById("static-form");
-    const isSeeded = cardMethods.seed();
+    const isSeeded = await cardMethods.seed();
+    console.log(userCards);
     cardMethods.displayCards();
 
     if (staticForm) {
