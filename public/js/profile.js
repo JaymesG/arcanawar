@@ -28,10 +28,11 @@
 
             e.preventDefault();
             console.log("our username shold be " +  userName.value);
+            console.log("our card name shold be " +  favoriteCard.value);
             $.ajax({
                 type: 'POST',
                 data: JSON.stringify({
-                userName: userName.value,
+                    userName: userName.value,
                     favoriteCard: favoriteCard.value
                 })
         ,

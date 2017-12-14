@@ -25,9 +25,7 @@ router.get("/", protectPrivate, function (req, res) {
 });
 
 router.post("/", protectPrivate, async function (req, res) {
-    console.log(req.user.valueOf());
-    console.log("our userName is please work : " + req.body);
-    await db.updateUserProfile(req.user, req.body.userName, req.body.favoriteCard);
+    await db.updateUserProfile(req.user, req.user.username, req.body.favoriteCard);
     res.render('pages/profile', {
         user: req.user,
     });
