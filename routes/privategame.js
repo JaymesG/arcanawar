@@ -28,7 +28,12 @@ router.get("/cards", protectPrivate, async function (req, res) {
     //console.log("here");
     const cardList = await cards.getAllCards();
     const userCards = _.sample(cardList, 5);
-    res.json({userCards: userCards})
+    const aiCards = _.sample(cardList, 5);
+
+    res.json(
+        {userCards: userCards,
+        aiCards: aiCards}
+        )
 });
 
 
