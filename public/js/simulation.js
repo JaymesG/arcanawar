@@ -104,7 +104,7 @@ var userHP = 20;
         },
         displayCards : function () {
             for(i = 0; i < userCards.length; i++) {
-                cardsContainer.innerHTML = userCards[i].title, userCards[i].value;
+                cardsContainer.innerHTML = userCards[i].title + ":" + userCards[i].value;
             }
         }
     };
@@ -114,26 +114,29 @@ var userHP = 20;
     cardMethods.displayCards();
 
     if (staticForm) {
-        const userInputElement = document.getElementById("input");
+        // const userInputElement = document.getElementById("input");
 
-        const errorContainer = document.getElementById("error-container");
-        const errorTextElement = errorContainer.getElementsByClassName(
-            "text-goes-here"
-        )[0];
+        // const errorContainer = document.getElementById("error-container");
+        // const errorTextElement = errorContainer.getElementsByClassName(
+        //     "text-goes-here"
+        // )[0];
 
         staticForm.addEventListener("submit", event => {
             event.preventDefault();
 
             try {
                 // hide containers by default
-                errorContainer.classList.add("hidden");
+                // errorContainer.classList.add("hidden");
 
-                const userInputValue = userInputElement.value;
-                console.log(userInputValue);
+                var x = document.getElementsByName("myRadio").value;
+                document.getElementById("demo").innerHTML = x;
+
+                //const userInputValue = userInputElement.value;
+                //console.log(userInputValue);
 
                 // const simpleInput = cardMethods.simplify(userInputValue);
                 // const result = cardMethods.check(simpleInput);
-                userHP--;
+                userHP += theValue.value;
                 aiHP -= 5;
 
                 // var entry = document.createElement('li');

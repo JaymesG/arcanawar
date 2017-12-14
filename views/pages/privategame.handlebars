@@ -64,43 +64,25 @@
 
         <h1 id="outputusercards"></h1>
 
-
-
-        <form action="#n" name="theForm">
-
-            <label for="gender">Gender: </label>
-            <input type="radio" name="genderS" value="1" checked> Male
-            <input type="radio" name="genderS" value="0"> Female
-            <br>
-            <br>
-            <a href="javascript: submitForm()">Search</A>
-        </form>
-
-
-
         <form id="static-form">
-            {{!--
+
             <div class="form-group">
+                <input type="radio" name="cards" value="1" id="myRadio" checked> Card One
+                <input type="radio" name="cards" value="2" id="myRadio"> Card Two
+                <input type="radio" name="cards" value="3" id="myRadio"> Card Three
+                <input type="radio" name="cards" value="4" id="myRadio"> Card Four
+                <input type="radio" name="cards" value="5" id="myRadio"> Card Five
+            </div>
+
+            {{!-- <div class="form-group">
                 <label for="input">Enter below</label>
                 <textarea class="form-control" rows="2" id="input"></textarea>
-            </div> --}}
+            </div>
             <div class="form-group hidden" id="error-container">
                 <div class="alert alert-danger text-goes-here">
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optradio" value="1">Card One</label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optradio" value="2">Card Two</label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optradio" value="3">Card Tree</label>
-            </div>
 
             <div class="form-group">
                 <button type="submit" class="btn btn-default">Play</button>
@@ -109,6 +91,8 @@
             <h1>Results</h1>
             <ol id="savedInputs"></ol>
         </form>
+
+        <p id="demo"></p>
 
 
 
