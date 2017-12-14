@@ -2,8 +2,8 @@ var list = document.getElementById('savedInputs');
 var ls = document.getElementById('aiHP');
 var ls2 = document.getElementById('userHP');
 var uCards = document.getElementById('cardsContainer');
-var usersCards;
-var aiCards;
+var userCards= [];
+var aiCards = [];
 
 var aiHP = 20;
 var userHP = 20;
