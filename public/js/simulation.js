@@ -73,8 +73,15 @@ var userHP = 20;
             try {
                 // hide containers by default
                 // errorContainer.classList.add("hidden");
-
-                var x = document.getElementsByName("myRadio").value;
+                let selectedIndex = -1;
+                console.log("here");
+                for(let i = 0; i < 5; i++)
+                {
+                    if (document.getElementById("myRadio " + i).checked){
+                        selectedIndex = i;
+                    }
+                }
+                console.log(selectedIndex);
                 document.getElementById("demo").innerHTML = x;
 
                 //const userInputValue = userInputElement.value;
@@ -98,8 +105,8 @@ var userHP = 20;
 
             } catch (e) {
                 const message = typeof e === "string" ? e : e.message;
-                errorTextElement.textContent = e;
-                errorContainer.classList.remove("hidden");
+                // errorTextElement.textContent = e;
+                // errorContainer.classList.remove("hidden");
             }
         });
     }
