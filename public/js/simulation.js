@@ -61,9 +61,6 @@ var userHP = 20;
                 list.appendChild(entry);
                 ls.innerHTML = aiHP;
                 ls2.innerHTML = userHP;
-            
-                //var outputcards = document.getElementById('outputusercards');
-                //outputcards.innerHTML(usercards);
 
             } catch (e) {
                 const message = typeof e === "string" ? e : e.message;
