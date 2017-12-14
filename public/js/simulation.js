@@ -47,7 +47,9 @@ var userHP = 20;
             },
         displayCards : function () {
             for(i = 0; i < userCards.length; i++) {
-                cardsContainer.appendChild(document.createTextNode(userCards[i].title + "/t"));
+                cardsContainer.appendChild(document.createElement("br"));
+                cardsContainer.appendChild(document.createTextNode(i+1 + ". " + userCards[i].title + " - " + userCards[i].type + " : " + userCards[i].value));
+                cardsContainer.appendChild(document.createElement("br"));
             }
         }
     };
