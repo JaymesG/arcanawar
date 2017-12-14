@@ -7,6 +7,8 @@ var aiCards = [];
 
 var aiHP = 20;
 var userHP = 20;
+let counter = 0;
+
 
 (async function () {
     const cardMethods = {
@@ -81,6 +83,10 @@ var userHP = 20;
                         selectedIndex = i;
                     }
                 }
+                if(selectedIndex === -1){
+                    return;
+                }
+
             document.getElementById("myRadio " + selectedIndex).checked = false;
 
             document.getElementById("myRadio " + selectedIndex).disabled = true;
@@ -93,7 +99,6 @@ var userHP = 20;
                 console.log(selectedCard);
 
 
-
                 if(selectedType === "Attack") {
                     aiHP -= selectedValue;
                     //ai turn
@@ -101,12 +106,10 @@ var userHP = 20;
                     userHP += selectedValue;
                 }
 
-<<<<<<< HEAD
                 console.log(selectedIndex);
-                gameOutput.innerHTML = "You chose the card: " + selectedTitle;
-=======
+
+                // gameOutput.innerHTML = "You chose the card: " + selectedTitle;
                 // document.getElementById("demo").innerHTML = "You chose the card" + selectedTitle;
->>>>>>> 7b9dd659dcee5848e07456393738f283d8a6ae44
 
                 //const userInputValue = userInputElement.value;
                 //console.log(userInputValue);
@@ -126,6 +129,20 @@ var userHP = 20;
                 // list.appendChild(entry);
                 ls.innerHTML = aiHP;
                 ls2.innerHTML = userHP;
+                if(aiHP <= 0){
+                    $(location).attr('href', '/privateGame/win');
+                } else if (userHP <= 0) {
+                    $(location).attr('href', '/privateGame/lose');
+
+                }
+                if(counter === 4){
+                    if(aiHP > userHP){
+                        $(location).attr('href', '/privateGame/lose');
+                    } else {
+                        $(location).attr('href', '/privateGame/win');
+                    }
+                }
+                counter++;
 
             // } catch (e) {
             //     const message = typeof e === "string" ? e : e.message;
