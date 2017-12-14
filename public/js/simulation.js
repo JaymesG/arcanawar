@@ -8,6 +8,8 @@ var aiCards = [];
 
 var aiHP = 20;
 var userHP = 20;
+let counter = 0;
+
 
 (async function () {
     const cardMethods = {
@@ -91,13 +93,26 @@ var userHP = 20;
                 var selectedType = selectedCard.type;
                 var selectedDesc = selectedCard.desc;
                 var selectedTitle = selectedCard.title;
+                if(selectedIndex === -1){
+                    return;
+                }
+
+            document.getElementById("myRadio " + selectedIndex).checked = false;
+
+            document.getElementById("myRadio " + selectedIndex).disabled = true;
+
+                const selectedCard = userCards[selectedIndex];
+                const selectedValue = selectedCard.value;
+                const selectedType = selectedCard.type;
+                const selectedDesc = selectedCard.description;
+                const selectedTitle = selectedCard.title;
+                console.log(selectedCard);
 
                 var selectedAiCard;
                 var selectedAiValue;
                 var selectedAiType;
                 var selectedAiDesc;
                 var selectedAiTitle;
-
 
                 if(selectedType === "Attack") {
                     aiHP -= selectedValue;
@@ -170,6 +185,20 @@ var userHP = 20;
                 // list.appendChild(entry);
                 ls.innerHTML = aiHP;
                 ls2.innerHTML = userHP;
+                if(aiHP <= 0){
+                    $(location).attr('href', '/privateGame/win');
+                } else if (userHP <= 0) {
+                    $(location).attr('href', '/privateGame/lose');
+
+                }
+                if(counter === 4){
+                    if(aiHP > userHP){
+                        $(location).attr('href', '/privateGame/lose');
+                    } else {
+                        $(location).attr('href', '/privateGame/win');
+                    }
+                }
+                counter++;
 
             } catch (e) {
                 const message = typeof e === "string" ? e : e.message;
